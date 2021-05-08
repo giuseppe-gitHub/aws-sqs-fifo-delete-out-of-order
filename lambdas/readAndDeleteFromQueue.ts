@@ -15,7 +15,7 @@ const handler = async () => {
 
     console.log('messagesRead:', records.Messages);
 
-    if(records.Messages?.length ?? 0 > 1){
+    if((records.Messages?.length ?? 0 )> 1){
         const deleteResult = await sqsClient.deleteMessage({
             QueueUrl: queuUrl,
             ReceiptHandle: records.Messages![1].ReceiptHandle!
